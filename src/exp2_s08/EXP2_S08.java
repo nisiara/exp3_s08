@@ -229,7 +229,7 @@ public class EXP2_S08 {
   public static void main(String[] args) {
     do {
       System.out.println("+++++++++++++++++++++++ SISTEMA DE GESTIÓN DE VENTA DE ENTRADAS TEATRO MORO +++++++++++++++++++++++");
-      System.out.println("            [1]Ver Promociones [2]Elegir Ubicación [3]Ver ubicaciones seleccionadas");
+      System.out.println("            [1]Ver Descuentos [2]Elegir Ubicación [3]Ver ubicaciones seleccionadas");
       System.out.println("      [4]Editar ubicación [5]Eliminar ubicación [6]Finalizar compra y/o salir del sistema");
       System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
       opcionMenu = entradaUsuario.nextInt();
@@ -304,7 +304,7 @@ public class EXP2_S08 {
     } while(opcionMenu != 6);
     
     if(cantidadBoletos >= 1){
-      System.out.println("+++++++++     BOLETA TEATRO MORO     +++++++++");
+      System.out.println("+++++++++     BOLETA TEATRO MORO     1+++++++++");
       
       mostrarResumen();
       
