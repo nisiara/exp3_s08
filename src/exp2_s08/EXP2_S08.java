@@ -98,8 +98,8 @@ public class EXP2_S08 {
         break;
     }
 
-    System.out.println("Boleto #" + (cantidadBoletos + 1) );
-    System.out.println("Entrada: " + tipoEntrada + " - Precio: $" + precioEntrada);
+    
+    System.out.println("Seleccionaste la ubicación: " + tipoEntrada + " - Precio: $" + precioEntrada);
 
     calcularDescuento();
 
@@ -107,20 +107,25 @@ public class EXP2_S08 {
     
     System.out.println("Boleto #" + (cantidadBoletos + 1) );
     System.out.println("Entrada: " + tipoEntrada + " - Precio: $" + precioEntrada);
-    System.out.println(tipoDescuento + " - Precio final: $" + (precioEntrada - valorDescuento) + "\n");
+    System.out.println("Descuento: " + tipoDescuento + " - Precio final: $" + (precioEntrada - valorDescuento) + "\n");
   }
 
   static void mostrarResumen(){
-    System.out.println("+++++++++ UBICACIONES SELECCIONADAS +++++++++");
-    for (int i = 0; i < cantidadBoletos ; i++) {
-      System.out.println("Resumen del boleto #" + (i + 1));
-      System.out.println("------------------------");
-      System.out.println("ID Boleto: " + arrayIdVentas[i]);
-      System.out.println("Ubicación: " + arrayUbicacionEntrada[i]);
-      System.out.println("Precio Boleto: $" + listaPrecioEntrada.get(i));
-      System.out.println("Descuento: " + listaTipoDescuento.get(i));
-      System.out.println("Valor Descuento $" + listaValorDescuento.get(i) + "\n");
+    if(cantidadBoletos >= 1){
+      System.out.println("+++++++++ UBICACIONES SELECCIONADAS +++++++++");
+      for (int i = 0; i < cantidadBoletos ; i++) {
+        System.out.println("Resumen del boleto #" + (i + 1));
+        System.out.println("------------------------");
+        System.out.println("ID Boleto: " + arrayIdVentas[i]);
+        System.out.println("Ubicación: " + arrayUbicacionEntrada[i]);
+        System.out.println("Precio Boleto: $" + listaPrecioEntrada.get(i));
+        System.out.println("Descuento: " + listaTipoDescuento.get(i));
+        System.out.println("Valor Descuento $" + listaValorDescuento.get(i) + "\n");
+      }
+    } else {
+      System.out.println("++++++ No hay ubicaciones seleccionadas ++++++++ \n");
     }
+    
   }
 
   static void editarUbicacion(){
@@ -183,7 +188,7 @@ public class EXP2_S08 {
 
     listaValorDescuento.set(opcionUbicacionEditar - 1, valorDescuento);
 
-    System.out.println("+++ La ubicación ha sido actualizada con éxito +++ \n");
+    System.out.println("--- La ubicación ha sido actualizada con éxito --- \n");
   }
 
   static void eliminarBoleto(){
@@ -214,7 +219,10 @@ public class EXP2_S08 {
     cantidadBoletos --;
     totalAsientos ++;
 
-    System.out.println("++Lista actualizada de ubicaciones++");
+    System.out.println("--- La ubicación ha sido eliminada con éxito --- \n");
+    if(cantidadBoletos>=1){
+      System.out.println("--- Esta es la lista con las ubicaciones actualizadas ---");
+    }
     mostrarResumen();
   }
  
@@ -267,7 +275,7 @@ public class EXP2_S08 {
         //MOSTRAR RESUMEN DE UBICACIONES
         case 3:
           if (cantidadBoletos == 0){
-            System.out.println("No hay seleccionada ninguna ubicación");
+            System.out.println("No hay seleccionada ninguna ubicación. \n");
           } else{
             mostrarResumen();
           }
@@ -276,7 +284,7 @@ public class EXP2_S08 {
         //EDITAR UBICACION
         case 4:
           if (cantidadBoletos == 0){
-            System.out.println("No hay ubicaciones seleccionadas para editar \n");
+            System.out.println("No hay ubicaciones seleccionadas para editar. \n");
           } else{
             System.out.println("+++++++++ EDITAR UBICACIÓN +++++++++");
             editarUbicacion();
@@ -296,7 +304,7 @@ public class EXP2_S08 {
     } while(opcionMenu != 6);
     
     if(cantidadBoletos >= 1){
-      System.out.println("+++++++++ BOLETA TEATRO MORO +++++++++");
+      System.out.println("+++++++++     BOLETA TEATRO MORO     +++++++++");
       
       mostrarResumen();
       
